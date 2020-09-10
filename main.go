@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func init() {
 	init_log()
 	init_env()
@@ -12,20 +8,7 @@ func init() {
 }
 
 func main() {
-	/*
-		rr := cloudflare.DNSRecord{Name: NAME}
-		recs, err := CfApi.DNSRecords(CF_ZONE_ID, rr)
-		if err != nil {
-			log.Error(err)
-		}
-
-		fmt.Println(len(recs))
-		for _, r := range recs {
-			fmt.Printf("%s: %s\n", r.Name, r.Content)
-		}
-	*/
-
-	fmt.Println(GetIP())
+	Update()
 
 	/*
 		d := time.Duration(INTERVAL) * time.Second
