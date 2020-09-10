@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/cloudflare/cloudflare-go"
-	log "github.com/sirupsen/logrus"
 )
 
 func init() {
@@ -15,16 +12,20 @@ func init() {
 }
 
 func main() {
-	rr := cloudflare.DNSRecord{Name: NAME}
-	recs, err := CfApi.DNSRecords(CF_ZONE_ID, rr)
-	if err != nil {
-		log.Error(err)
-	}
+	/*
+		rr := cloudflare.DNSRecord{Name: NAME}
+		recs, err := CfApi.DNSRecords(CF_ZONE_ID, rr)
+		if err != nil {
+			log.Error(err)
+		}
 
-	fmt.Println(len(recs))
-	for _, r := range recs {
-		fmt.Printf("%s: %s\n", r.Name, r.Content)
-	}
+		fmt.Println(len(recs))
+		for _, r := range recs {
+			fmt.Printf("%s: %s\n", r.Name, r.Content)
+		}
+	*/
+
+	fmt.Println(GetIP())
 
 	/*
 		d := time.Duration(INTERVAL) * time.Second

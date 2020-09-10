@@ -21,8 +21,8 @@ var (
 	LOG_FILE   string
 	INTERVAL   int
 	NAME       string
-
-	CfApi *cloudflare.API
+	TYPE       string
+	CfApi      *cloudflare.API
 )
 
 func init_env() {
@@ -36,6 +36,10 @@ func init_env() {
 	LOG_FILE = os.Getenv("LOG_FILE")
 	INTERVAL, _ = strconv.Atoi(os.Getenv("INTERVAL"))
 	NAME = os.Getenv("NAME")
+	TYPE = os.Getenv("TYPE")
+	if TYPE == "" {
+		TYPE = "A"
+	}
 }
 
 func init_cf_api() {
