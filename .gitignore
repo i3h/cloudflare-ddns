@@ -3,3 +3,10 @@ config.json
 
 # scripts
 *.sh
+
+# binary
+cloudflare-ddns
+run
+
+# systemd config
+ddns.service

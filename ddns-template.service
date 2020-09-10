@@ -1,0 +1,20 @@
+[Unit]
+Description=Cloudflare DDNS Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+User=root
+Environment=CF_EMAIL=yourname@example.com
+Environment=CF_API_KEY=12345abcde
+Environment=CF_ZONE=example.com
+Environment=LOG_FILE=/dev/null
+Environment=INTERVAL=300
+Environment=NAME=ddns.example.com
+Environment=TYPE=A
+ExecStart=/var/www/cloudflare-ddns/run
+
+[Install]
+WantedBy=multi-user.target
