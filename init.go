@@ -5,7 +5,6 @@ import (
 	"strconv"
 
 	"github.com/cloudflare/cloudflare-go"
-	log "github.com/sirupsen/logrus"
 )
 
 const (

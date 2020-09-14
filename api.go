@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/cloudflare/cloudflare-go"
-	log "github.com/sirupsen/logrus"
 )
 
 func GetRecords() []cloudflare.DNSRecord {

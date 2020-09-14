@@ -10,3 +10,6 @@ run
 
 # systemd config
 ddns.service
+
+# log files
+*.log
