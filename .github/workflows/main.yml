@@ -1,0 +1,45 @@
+name: build
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Create release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: true
+          prerelease: true
+
+      - name: Setup Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: "1.13.8"
+
+      - name: Build
+        run: |
+          go build -o cloudflare-ddns *.go
+          ls -lha
+
+      - name: Upload binary
+        uses: actions/upload-release-asset@v1.0.1
+        id: upload-release-asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./cloudflare-ddns
+          asset_name: cloudflare-ddns
+          asset_content_type: application/octet-stream
