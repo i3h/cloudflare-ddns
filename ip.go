@@ -31,7 +31,7 @@ func GetIP() string {
 		Transport: tr,
 	}
 
-	req, _ := http.NewRequest("GET", IP_API, nil)
+	req, _ := http.NewRequest("GET", GET_IP_API, nil)
 
 	res, err := client.Do(req)
 	if err != nil {

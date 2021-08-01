@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func PPrint(i interface{}) {
-	s, _ := json.MarshalIndent(i, "", "\t")
+func pprint(i interface{}) {
+	s, _ := json.MarshalIndent(i, "", "  ")
 	fmt.Println(string(s))
 }

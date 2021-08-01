@@ -5,7 +5,7 @@ import "time"
 func init() {
 	init_env()
 	init_log()
-	init_cf_api()
+	init_api()
 	init_cf_zone_id()
 }
 
