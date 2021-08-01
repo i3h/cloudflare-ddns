@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=3
 User=root
-Environment=CF_EMAIL=yourname@example.com
+Environment=CF_API_EMAIL=yourname@example.com
 Environment=CF_API_KEY=12345abcde
 Environment=CF_ZONE=example.com
 Environment=LOG_FILE=/var/www/ddns/ddns.log
